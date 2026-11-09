@@ -1,0 +1,27 @@
+# Dependencias y binarios
+/vendor/
+/node_modules/
+
+# Configuración local (contiene credenciales)
+.env
+.env.local
+
+# Almacenamiento y registros
+/storage/logs/*
+/storage/cache/*
+/storage/uploads/*
+!/storage/logs/.gitkeep
+!/storage/cache/.gitkeep
+!/storage/uploads/.gitkeep
+
+# Respaldos de base de datos
+/database/backups/*
+!/database/backups/.gitkeep
+
+# Sistema operativo / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+*.tmp
