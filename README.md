@@ -99,6 +99,39 @@ views/                Plantillas PHP
 
    Abrir <http://localhost:8000>.
 
+## Inicio rápido en Windows
+
+Si trabaja en Windows con XAMPP, puede arrancar todo con el script `iniciar.bat`:
+
+```bat
+iniciar.bat
+```
+
+También puede hacer doble clic sobre el archivo. El script:
+
+1. Crea `.env` con una configuración local si aún no existe.
+2. Inicia MariaDB/MySQL si no está en ejecución.
+3. Crea la base de datos y carga `database/schema.sql` y `database/seed.sql` si es la primera vez.
+4. Levanta el servidor embebido de PHP en el puerto configurado en `APP_URL`.
+5. Abre el navegador en la aplicación.
+
+Para detener el proyecto, cierre la ventana **Futuro Digital - Servidor PHP**.
+
+Opciones disponibles:
+
+| Opción | Descripción |
+| --- | --- |
+| `--demo` | Carga los datos de demostración si aún no existen. |
+| `--fresh-demo` | Reinicia y vuelve a cargar los datos de demostración. |
+| `--no-browser` | No abre el navegador al terminar. |
+| `--no-db` | No intenta iniciar MariaDB/MySQL automáticamente. |
+| `--no-pause` | No espera una tecla al finalizar (útil para automatización). |
+| `--help` | Muestra la ayuda. |
+
+Por defecto busca XAMPP en `C:\xampp`. Si está instalado en otra ruta, defina las variables `PHP_EXE`, `MYSQL_CLI`, `MYSQLD_EXE` y `MYSQL_INI` antes de ejecutar el script. También puede ajustar las credenciales de la base de datos en `.env`.
+
+> El script está pensado para desarrollo local. En producción use Apache/Nginx, un usuario de base de datos dedicado y `APP_ENV=production` con `APP_DEBUG=false`.
+
 ## Credenciales
 
 ### Administrador inicial
