@@ -623,4 +623,4 @@ fwrite(STDOUT, "  4000000002  Secretaría Corozal\n");
 fwrite(STDOUT, "  4000000003  Coordinación Académica\n");
 fwrite(STDOUT, "  4000000004  Coordinación Administrativa\n");
 fwrite(STDOUT, "  4000000005  Dirección General\n");
-fwrite(STDOUT, "  admin       Administrador (contraseña de fábrica Admin123*, cambio obligatorio)\n");
+fwrite(STDOUT, "  admin       Administrador (conserva su contraseña actual; si es instalación nueva: Admin123*)\n");
