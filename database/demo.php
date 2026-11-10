@@ -285,7 +285,7 @@ if ($fresh) {
         'inscripcion_movimientos', 'alertas', 'inscripciones',
         'pago_aplicaciones', 'comprobantes', 'pagos', 'cargos', 'matriculas',
         'grupo_horarios', 'grupos', 'plan_estudios', 'prerrequisitos',
-        'cursos', 'programas', 'aulas', 'acudientes', 'estudiantes',
+        'cursos', 'programas', 'aulas', 'periodos', 'acudientes', 'estudiantes',
         'docentes', 'auditoria', 'intentos_login',
     ];
 

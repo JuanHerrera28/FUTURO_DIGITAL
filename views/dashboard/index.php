@@ -21,6 +21,21 @@ if (can('payments.view')) {
 if (can('reports.view')) {
     $quick[] = ['url' => '/reports', 'icon' => 'graph-up-arrow', 'title' => 'Informes', 'text' => 'Indicadores y exportación CSV.'];
 }
+if (can('teachers.view')) {
+    $quick[] = ['url' => '/teachers', 'icon' => 'person-video3', 'title' => 'Docentes', 'text' => 'Fichas y carga académica.'];
+}
+if (can('users.manage')) {
+    $quick[] = ['url' => '/users', 'icon' => 'person-badge', 'title' => 'Usuarios', 'text' => 'Cuentas, roles y claves.'];
+}
+if (can('roles.manage')) {
+    $quick[] = ['url' => '/roles', 'icon' => 'shield-lock', 'title' => 'Roles', 'text' => 'Matriz de permisos.'];
+}
+if (can('params.manage')) {
+    $quick[] = ['url' => '/params', 'icon' => 'sliders', 'title' => 'Parámetros', 'text' => 'Umbrales y configuración.'];
+}
+if (can('audit.view')) {
+    $quick[] = ['url' => '/audit', 'icon' => 'journal-text', 'title' => 'Auditoría', 'text' => 'Cambios y eventos del sistema.'];
+}
 ?>
 <div class="page-header">
     <div>

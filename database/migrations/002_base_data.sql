@@ -25,7 +25,7 @@ INSERT INTO `roles` (`id`,`nombre`,`descripcion`,`estado`) VALUES
   (5,'Director','Consulta alertas e informes de ambas sedes','activo'),
   (6,'Docente','Consulta sus grupos y registra calificaciones y asistencia','activo'),
   (7,'Estudiante','Consulta sus notas, asistencia, horario y estado de cuenta','activo')
-ON DUPLICATE KEY UPDATE `descripcion`=VALUES(`descripcion`), `estado`=VALUES(`estado`);
+ON DUPLICATE KEY UPDATE `nombre`=VALUES(`nombre`), `descripcion`=VALUES(`descripcion`), `estado`=VALUES(`estado`);
 
 INSERT INTO `permisos` (`id`,`clave`,`descripcion`) VALUES
   (1,'dashboard.view','Ver el panel principal'),

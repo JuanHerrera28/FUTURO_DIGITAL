@@ -6,6 +6,7 @@ namespace App\Controllers;
 
 use App\Core\Auth;
 use App\Core\Controller;
+use App\Services\DashboardService;
 
 final class DashboardController extends Controller
 {
@@ -23,8 +24,13 @@ final class DashboardController extends Controller
             $this->redirect('/teaching');
         }
 
+        $summary = DashboardService::summary();
+
         $this->view('dashboard.index', [
             'title' => 'Panel principal',
+            'stats' => $summary['stats'],
+            'alerts' => $summary['alerts'],
+            'period' => $summary['period'],
         ]);
     }
 }

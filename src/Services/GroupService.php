@@ -417,12 +417,15 @@ final class GroupService
         $sql = "SELECT g.*, c.nombre AS curso, c.codigo AS curso_codigo,
                        p.nombre AS periodo, p.estado AS periodo_estado,
                        s.nombre AS sede, a.nombre AS aula,
+                       CONCAT_WS(' ', pd.nombres, pd.apellidos) AS docente,
                        (SELECT COUNT(*) FROM inscripciones i WHERE i.grupo_id = g.id AND i.estado = 'activa') AS inscritos
                 FROM grupos g
                 JOIN cursos c ON c.id = g.curso_id
                 JOIN periodos p ON p.id = g.periodo_id
                 JOIN sedes s ON s.id = g.sede_id
                 JOIN aulas a ON a.id = g.aula_id
+                JOIN docentes d ON d.id = g.docente_id
+                JOIN personas pd ON pd.id = d.persona_id
                 WHERE g.docente_id = ? AND g.estado = 'activo'";
         $params = [$docenteId];
 

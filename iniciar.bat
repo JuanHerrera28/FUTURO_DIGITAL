@@ -155,7 +155,7 @@ if "!START_DB!"=="1" (
     echo        Inicio automatico del motor omitido: --no-db.
 )
 
-set "MYSQL_AUTH=--host=%DB_HOST% --port=%DB_PORT% --user=%DB_USERNAME%"
+set "MYSQL_AUTH=--default-character-set=utf8mb4 --host=%DB_HOST% --port=%DB_PORT% --user=%DB_USERNAME%"
 set "MYSQL_PWD=%DB_PASSWORD%"
 
 echo [3/6] Esperando la base de datos...
