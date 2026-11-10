@@ -316,9 +316,10 @@ final class EnrollmentService
              WHERE i.matricula_id = ?
                AND g.curso_id = ?
                AND i.estado = 'activa'
+               AND i.grupo_id <> ?
                AND (? IS NULL OR i.id <> ?)
              LIMIT 1",
-            [$matriculaId, (int) $group['curso_id'], $ignoreInscripcionId, $ignoreInscripcionId ?? 0]
+            [$matriculaId, (int) $group['curso_id'], $grupoId, $ignoreInscripcionId, $ignoreInscripcionId ?? 0]
         );
 
         if ($activeSameCourse !== null) {

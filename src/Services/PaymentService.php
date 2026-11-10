@@ -313,6 +313,8 @@ final class PaymentService
         ?string $referencia = null,
         array $allocations = []
     ): array {
+        $valor = round($valor, 2);
+
         if ($valor <= 0) {
             throw new DomainException('RF-16', 'El valor del pago debe ser mayor que cero.');
         }
@@ -346,22 +348,22 @@ final class PaymentService
             $totalDebt = 0.0;
             foreach ($charges as $charge) {
                 $balance = round((float) $charge['valor_total'] - (float) $charge['pagado'], 2);
-                if ($balance > 0.01) {
+                if ($balance > 0) {
                     $balances[(int) $charge['id']] = $balance;
-                    $totalDebt += $balance;
+                    $totalDebt = round($totalDebt + $balance, 2);
                 }
             }
 
-            if ($totalDebt <= 0.01) {
+            if ($totalDebt <= 0) {
                 throw new DomainException('RF-16', 'El estudiante no tiene cargos pendientes para aplicar el pago.');
             }
 
-            if ($valor > $totalDebt + 0.01) {
+            if ($valor > $totalDebt) {
                 throw new DomainException('RF-16', 'El pago (' . money($valor) . ') supera el saldo pendiente (' . money($totalDebt) . '). Registre un valor menor o igual.');
             }
 
             $plan = [];
-            $remaining = round($valor, 2);
+            $remaining = $valor;
 
             if ($allocations !== []) {
                 foreach ($allocations as $cargoId => $amount) {
@@ -376,11 +378,11 @@ final class PaymentService
                         throw new DomainException('RF-16', 'Uno de los cargos seleccionados no existe o ya está pagado.');
                     }
 
-                    if ($amount > $balances[$cargoId] + 0.01) {
+                    if ($amount > $balances[$cargoId]) {
                         throw new DomainException('RF-16', 'El valor aplicado a un cargo supera su saldo pendiente.');
                     }
 
-                    if ($amount > $remaining + 0.01) {
+                    if ($amount > $remaining) {
                         throw new DomainException('RF-16', 'La suma de las aplicaciones supera el valor del pago.');
                     }
 
@@ -388,12 +390,12 @@ final class PaymentService
                     $remaining = round($remaining - $amount, 2);
                 }
 
-                if ($remaining > 0.01) {
+                if ($remaining > 0.005) {
                     throw new DomainException('RF-16', 'Debe distribuir todo el valor del pago entre los cargos seleccionados.');
                 }
             } else {
                 foreach ($balances as $cargoId => $balance) {
-                    if ($remaining <= 0.01) {
+                    if ($remaining <= 0.005) {
                         break;
                     }
 
