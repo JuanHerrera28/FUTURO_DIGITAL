@@ -1,6 +1,12 @@
 # Dependencias y binarios
 /vendor/
 /node_modules/
+/tools/
+
+# Resultados de pruebas
+/.phpunit.cache/
+/.phpunit.result.cache
+/tests/.phpunit.result.cache
 
 # Configuración local (contiene credenciales)
 .env

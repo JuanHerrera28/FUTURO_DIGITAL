@@ -152,7 +152,23 @@ Todos los usuarios demo usan la contraseña `Demo123*` y no obligan cambio.
 
 ## Pruebas
 
-El proyecto está preparado para pruebas con PHPUnit en `tests/Unit` y `tests/Integration`. La instalación de PHPUnit y la batería completa de pruebas se incorporarán en la siguiente fase del proyecto.
+La suite usa PHPUnit 11 y una base de datos dedicada `futuro_digital_test`, que se crea y reinicia automáticamente desde `database/schema.sql` y `database/seed.sql`. Las pruebas nunca operan sobre la base configurada en `.env`. El nombre puede cambiarse con la variable de entorno `TEST_DB_DATABASE`.
+
+Requisitos: PHP 8.1+ con PDO MySQL y MariaDB/MySQL en ejecución.
+
+```powershell
+# Instalar PHPUnit local (la carpeta /tools/ no se versiona)
+Invoke-WebRequest https://phar.phpunit.de/phpunit-11.phar -OutFile tools/phpunit.phar
+
+# Suite completa
+C:\xampp\php\php.exe tools\phpunit.phar --no-coverage
+
+# Solo unitarias o solo integración
+C:\xampp\php\php.exe tools\phpunit.phar --testsuite Unit --no-coverage
+C:\xampp\php\php.exe tools\phpunit.phar --testsuite Integration --no-coverage
+```
+
+La batería cubre las reglas de matrícula e inscripción, cupos, horarios, calificaciones, asistencia, pagos, periodos y seguridad. Incluye una prueba de concurrencia que lanza dos procesos PHP para comprobar que solo una inscripción obtiene el último cupo (RN-03) mediante `SELECT ... FOR UPDATE`.
 
 ## Documentación
 
