@@ -8,7 +8,7 @@ $periods = $periods ?? [];
 <div class="page-header">
     <div>
         <h2>Calificaciones</h2>
-        <p class="text-muted mb-0">Planillas por grupo. Solo el docente asignado puede registrar notas (RN-12).</p>
+        <p class="text-muted mb-0">Planillas por grupo. Solo el docente asignado puede registrar notas.</p>
     </div>
 </div>
 

@@ -8,7 +8,7 @@ $periods = $periods ?? [];
 <div class="page-header">
     <div>
         <h2>Asistencia</h2>
-        <p class="text-muted mb-0">Sesiones y control de inasistencias por grupo. Solo el docente asignado registra asistencia (RN-12).</p>
+        <p class="text-muted mb-0">Sesiones y control de inasistencias por grupo. Solo el docente asignado registra asistencia.</p>
     </div>
 </div>
 

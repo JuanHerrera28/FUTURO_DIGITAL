@@ -53,7 +53,7 @@ $ocupacion = porcentaje((int) $group['inscritos'], (int) $group['capacidad_max']
                     <div class="progress-bar <?= $ocupacion >= 100 ? 'bg-danger' : ($ocupacion >= 80 ? 'bg-warning' : 'bg-success') ?>" style="width: <?= min(100, $ocupacion) ?>%"></div>
                 </div>
                 <?php if ((int) $group['inscritos'] < (int) $group['cupo_minimo']): ?>
-                    <div class="alert alert-warning mt-3 mb-0 small"><i class="bi bi-exclamation-triangle me-1"></i>El grupo está por debajo del cupo mínimo de <?= (int) $group['cupo_minimo'] ?> estudiantes (RN-03).</div>
+                    <div class="alert alert-warning mt-3 mb-0 small"><i class="bi bi-exclamation-triangle me-1"></i>El grupo está por debajo del cupo mínimo de <?= (int) $group['cupo_minimo'] ?> estudiantes.</div>
                 <?php endif; ?>
             </div>
         </div>

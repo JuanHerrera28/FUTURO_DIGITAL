@@ -35,7 +35,7 @@ $weightComplete = abs($weight - 100.0) <= 0.01;
 </div>
 
 <?php if (!$weightComplete): ?>
-    <div class="alert alert-warning"><i class="bi bi-exclamation-triangle me-2"></i>Los pesos de las evaluaciones activas suman <strong><?= number_format($weight, 1, ',', '.') ?> %</strong>. Antes de calificar deben sumar exactamente 100 % (RN-13).</div>
+    <div class="alert alert-warning"><i class="bi bi-exclamation-triangle me-2"></i>Los pesos de las evaluaciones activas suman <strong><?= number_format($weight, 1, ',', '.') ?> %</strong>. Antes de calificar deben sumar exactamente 100 %.</div>
 <?php endif; ?>
 
 <div class="card mb-4">

@@ -7,8 +7,8 @@ namespace App\Core;
 use RuntimeException;
 
 /**
- * Error de regla de negocio. Siempre incluye el código de la regla
- * (por ejemplo RN-03) y el motivo exacto del rechazo.
+ * Error de regla de negocio. Conserva el código de la regla para uso interno
+ * (pruebas y trazabilidad), pero el mensaje visible muestra solo el motivo.
  */
 final class DomainException extends RuntimeException
 {
@@ -26,8 +26,6 @@ final class DomainException extends RuntimeException
 
     public function fullMessage(): string
     {
-        return $this->rule !== ''
-            ? $this->rule . ': ' . $this->getMessage()
-            : $this->getMessage();
+        return $this->getMessage();
     }
 }

@@ -15,7 +15,7 @@ $labels = [
 <div class="page-header">
     <div>
         <h2>Parámetros del sistema</h2>
-        <p class="text-muted mb-0">Los umbrales y reglas configurables viven aquí. Cada cambio queda auditado con su valor anterior y nuevo.</p>
+        <p class="text-muted mb-0">Ajusta los valores que usa el sistema para calificaciones, asistencia, matrícula, pagos y seguridad.</p>
     </div>
 </div>
 
@@ -43,11 +43,6 @@ $labels = [
                                     <?php else: ?>
                                         <input type="text" class="form-control" id="param_<?= e($param['clave']) ?>" name="parametros[<?= e($param['clave']) ?>]" value="<?= e($param['valor']) ?>">
                                     <?php endif; ?>
-                                    <span class="badge text-bg-light border mono"><?= e($param['clave']) ?></span>
-                                </div>
-                                <div class="form-text">
-                                    Tipo: <?= e($param['tipo']) ?>
-                                    <?php if (!empty($param['updated_at'])): ?> · Actualizado <?= e(fecha_hora($param['updated_at'])) ?><?php endif; ?>
                                 </div>
                             </div>
                         <?php endforeach; ?>

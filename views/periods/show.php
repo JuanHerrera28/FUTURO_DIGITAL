@@ -41,12 +41,12 @@ $estado = (string) $period['estado'];
             <div class="card-header">Acciones del periodo</div>
             <div class="card-body d-flex flex-column gap-3">
                 <?php if ($estado === 'planificado'): ?>
-                    <div class="alert alert-info mb-0"><i class="bi bi-info-circle me-2"></i>Al abrir la matrícula se valida que no exista otro periodo con matrícula abierta (RN-09).</div>
+                    <div class="alert alert-info mb-0"><i class="bi bi-info-circle me-2"></i>Al abrir la matrícula se valida que no exista otro periodo con matrícula abierta.</div>
                     <form method="post" action="<?= e(url('/periods/' . $period['id'] . '/open-enrollment')) ?>">
                         <?= csrf_field() ?>
                         <?php if ($lowGroups !== []): ?>
                             <div class="alert alert-warning">
-                                <div class="fw-semibold mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Grupos por debajo del cupo mínimo (RN-03)</div>
+                                <div class="fw-semibold mb-1"><i class="bi bi-exclamation-triangle me-1"></i>Grupos por debajo del cupo mínimo</div>
                                 <ul class="mb-2 small">
                                     <?php foreach ($lowGroups as $group): ?>
                                         <li><?= e($group['curso']) ?> · <?= e($group['codigo']) ?> (<?= (int) $group['inscritos'] ?> inscritos)</li>
@@ -71,7 +71,7 @@ $estado = (string) $period['estado'];
                         <button class="btn btn-navy" type="submit"><i class="bi bi-play-fill me-1"></i>Pasar a curso</button>
                     </form>
                 <?php elseif ($estado === 'en_curso'): ?>
-                    <div class="alert alert-primary mb-0"><i class="bi bi-play-circle me-2"></i>El periodo está en curso. El cierre consolida notas, asistencia y matrículas (RF-22).</div>
+                    <div class="alert alert-primary mb-0"><i class="bi bi-play-circle me-2"></i>El periodo está en curso. El cierre consolida notas, asistencia y matrículas.</div>
                     <form method="post" action="<?= e(url('/periods/' . $period['id'] . '/close')) ?>" onsubmit="return confirm('¿Cerrar el periodo? Esta acción consolida las inscripciones.');">
                         <?= csrf_field() ?>
                         <div class="form-check mb-3">

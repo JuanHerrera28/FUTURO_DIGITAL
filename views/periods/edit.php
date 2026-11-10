@@ -11,7 +11,7 @@ declare(strict_types=1);
 </div>
 
 <?php if ((string) $period['estado'] === 'cerrado'): ?>
-    <div class="alert alert-warning"><i class="bi bi-lock me-2"></i>Un periodo cerrado no puede modificarse (RF-22).</div>
+    <div class="alert alert-warning"><i class="bi bi-lock me-2"></i>Un periodo cerrado no puede modificarse.</div>
 <?php endif; ?>
 
 <form method="post" action="<?= e(url('/periods/' . $period['id'])) ?>" novalidate>

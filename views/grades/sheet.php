@@ -19,7 +19,7 @@ declare(strict_types=1);
     </div>
 </div>
 
-<div class="alert alert-info"><i class="bi bi-info-circle me-2"></i>La planilla solo puede guardarse cuando los pesos de las evaluaciones activas del grupo suman 100 % (RN-13). Las notas se registran con un decimal.</div>
+<div class="alert alert-info"><i class="bi bi-info-circle me-2"></i>La planilla solo puede guardarse cuando los pesos de las evaluaciones activas del grupo suman 100 %. Las notas se registran con un decimal.</div>
 
 <form method="post" action="<?= e(url('/grades/' . $group['id'] . '/evaluations/' . $evaluation['id'] . '/notas')) ?>">
     <?= csrf_field() ?>
